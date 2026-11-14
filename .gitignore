@@ -1,0 +1,29 @@
+# Datasets and Large Archives
+*.zip
+*.tar.gz
+datasets/
+Mango_Leaf_Dataset/
+Apple_Leaf_Dataset/
+Tomato_Leaf_Dataset/
+
+# Python Virtual Environments & Cache
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.class
+
+# Trained models and checkpoints (>100MB)
+*.h5
+*.keras
+*.pth
+*.pt
+*.pkl
+global_federated_leaf_disease_model.keras
+saved_models/
+checkpoints/
+
+# VS Code & Jupyter
+.vscode/
+.ipynb_checkpoints/
