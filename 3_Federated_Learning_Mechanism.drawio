@@ -1,94 +1,92 @@
 <mxfile host="app.diagrams.net" modified="2026-11-16T15:00:00.000Z" agent="Mozilla/5.0" version="21.0.0" type="device">
-  <diagram id="diag_fl" name="3. Federated Learning Mechanism">
+  <diagram id="academic_fl" name="Federated Learning Protocol">
     <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1000" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
-        <!-- Header -->
-        <mxCell id="h3" value="FEDERATED LEARNING PROTOCOL: DECENTRALIZED TRAINING WITH FEDAVG" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E3A8A;strokeColor=#1E3A8A;fontColor=#FFFFFF;fontSize=18;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="30" width="1340" height="50" as="geometry" />
+        <!-- Title -->
+        <mxCell id="t3" value="Decentralized Federated Averaging (FedAvg) Protocol" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#000000;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="80" y="30" width="1340" height="40" as="geometry" />
         </mxCell>
 
         <!-- Central Server -->
-        <mxCell id="server_box" value="&lt;b&gt;CENTRAL FEDERATED COORDINATOR / SERVER&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• Holds Global Model: &lt;i&gt;W_global&lt;/i&gt;&lt;br/&gt;• Architecture: Dense(1024) → Dense(512) → Dense(256) → Dense(128) → Sigmoid(1)&lt;br/&gt;• Aggregation Strategy: &lt;b&gt;Federated Averaging (FedAvg)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;&lt;font color='#1D4ED8'&gt;&lt;b&gt;W_(t+1) = (N₁/N)*W₁ + (N₂/N)*W₂ + (N₃/N)*W₃&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;Total Training: 15 Communication Rounds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=3;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="400" y="120" width="700" height="170" as="geometry" />
+        <mxCell id="srv_box" value="&lt;b&gt;Central Federated Parameter Server&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;Global Weights: &lt;b&gt;W_(t+1) = Σ (n_k / N) · W_k^(t+1)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• Orchestrates 15 global aggregation rounds&lt;br/&gt;• Computes sample-weighted parameter averaging&lt;br/&gt;• Dispatches updated model parameters to all participating clients&lt;br/&gt;• Total Samples: N = 24,329 images" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontSize=12;fontColor=#000000;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="400" y="110" width="700" height="150" as="geometry" />
         </mxCell>
 
-        <!-- Client 1 -->
-        <mxCell id="c1_box" value="&lt;b&gt;CLIENT 1: MANGO NODE&lt;/b&gt;&lt;br/&gt;• Local Data: 870 images&lt;br/&gt;• Weight in Aggregation: &lt;b&gt;n₁/N = 3.6%&lt;/b&gt;&lt;br/&gt;• Trains 8 local epochs per round&lt;br/&gt;• Optimizer: Adam (lr=0.0001)&lt;br/&gt;• Only weights W₁ sent (No Images!)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="80" y="440" width="360" height="150" as="geometry" />
+        <!-- Client Nodes -->
+        <mxCell id="node_1" value="&lt;b&gt;Client Node 1: Mango Farm&lt;/b&gt;&lt;br/&gt;• Local Data: n₁ = 870 images&lt;br/&gt;• Aggregation Weight: 3.6%&lt;br/&gt;• Local Training: 8 Epochs&lt;br/&gt;• Optimizer: Adam (lr = 10⁻⁴)&lt;br/&gt;• Output: Model Weights W₁" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="360" height="130" as="geometry" />
         </mxCell>
 
-        <!-- Client 2 -->
-        <mxCell id="c2_box" value="&lt;b&gt;CLIENT 2: APPLE NODE&lt;/b&gt;&lt;br/&gt;• Local Data: 3,460 images&lt;br/&gt;• Weight in Aggregation: &lt;b&gt;n₂/N = 14.2%&lt;/b&gt;&lt;br/&gt;• Trains 8 local epochs per round&lt;br/&gt;• Optimizer: Adam (lr=0.0001)&lt;br/&gt;• Only weights W₂ sent (No Images!)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="570" y="440" width="360" height="150" as="geometry" />
+        <mxCell id="node_2" value="&lt;b&gt;Client Node 2: Apple Orchard&lt;/b&gt;&lt;br/&gt;• Local Data: n₂ = 3,460 images&lt;br/&gt;• Aggregation Weight: 14.2%&lt;br/&gt;• Local Training: 8 Epochs&lt;br/&gt;• Optimizer: Adam (lr = 10⁻⁴)&lt;br/&gt;• Output: Model Weights W₂" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="420" width="360" height="130" as="geometry" />
         </mxCell>
 
-        <!-- Client 3 -->
-        <mxCell id="c3_box" value="&lt;b&gt;CLIENT 3: TOMATO NODE&lt;/b&gt;&lt;br/&gt;• Local Data: 19,999 images (capped)&lt;br/&gt;• Weight in Aggregation: &lt;b&gt;n₃/N = 82.2%&lt;/b&gt;&lt;br/&gt;• Trains 8 local epochs per round&lt;br/&gt;• Optimizer: Adam (lr=0.0001)&lt;br/&gt;• Only weights W₃ sent (No Images!)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="1060" y="440" width="360" height="150" as="geometry" />
+        <mxCell id="node_3" value="&lt;b&gt;Client Node 3: Tomato Field&lt;/b&gt;&lt;br/&gt;• Local Data: n₃ = 19,999 images&lt;br/&gt;• Aggregation Weight: 82.2%&lt;br/&gt;• Local Training: 8 Epochs&lt;br/&gt;• Optimizer: Adam (lr = 10⁻⁴)&lt;br/&gt;• Output: Model Weights W₃" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="420" width="360" height="130" as="geometry" />
         </mxCell>
 
-        <!-- Downward Dispatches (Server -> Clients) -->
-        <mxCell id="down1" value="1. Broadcast Global Weights W_t" edge="1" parent="1" source="server_box" target="c1_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#16A34A;">
+        <!-- Downward Broadcasts -->
+        <mxCell id="bc_1" value="1. Broadcast Global Weights W_t" edge="1" parent="1" source="srv_box" target="node_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="490" y="360" />
-              <mxPoint x="220" y="360" />
+              <mxPoint x="500" y="340" />
+              <mxPoint x="220" y="340" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="down2" value="1. Broadcast Global Weights W_t" edge="1" parent="1" source="server_box" target="c2_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#16A34A;">
+        <mxCell id="bc_2" value="1. Broadcast Global Weights W_t" edge="1" parent="1" source="srv_box" target="node_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="750" y="360" />
-              <mxPoint x="750" y="360" />
+              <mxPoint x="750" y="340" />
+              <mxPoint x="750" y="340" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="down3" value="1. Broadcast Global Weights W_t" edge="1" parent="1" source="server_box" target="c3_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#16A34A;">
+        <mxCell id="bc_3" value="1. Broadcast Global Weights W_t" edge="1" parent="1" source="srv_box" target="node_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1010" y="360" />
-              <mxPoint x="1240" y="360" />
+              <mxPoint x="1000" y="340" />
+              <mxPoint x="1240" y="340" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Upward Uploads (Clients -> Server) -->
-        <mxCell id="up1" value="2. Send Trained Local Weights W₁" edge="1" parent="1" source="c1_box" target="server_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#DC2626;dashed=1;">
+        <!-- Upward Uploads -->
+        <mxCell id="up_1" value="2. Send Trained Local Weights W₁" edge="1" parent="1" source="node_1" target="srv_box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#333333;dashed=1;endArrow=classic;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="300" y="380" />
-              <mxPoint x="550" y="380" />
+              <mxPoint x="300" y="370" />
+              <mxPoint x="550" y="370" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="up2" value="2. Send Trained Local Weights W₂" edge="1" parent="1" source="c2_box" target="server_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#DC2626;dashed=1;">
+        <mxCell id="up_2" value="2. Send Trained Local Weights W₂" edge="1" parent="1" source="node_2" target="srv_box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#333333;dashed=1;endArrow=classic;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="790" y="380" />
-              <mxPoint x="790" y="380" />
+              <mxPoint x="800" y="370" />
+              <mxPoint x="800" y="370" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="up3" value="2. Send Trained Local Weights W₃" edge="1" parent="1" source="c3_box" target="server_box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#DC2626;dashed=1;">
+        <mxCell id="up_3" value="2. Send Trained Local Weights W₃" edge="1" parent="1" source="node_3" target="srv_box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#333333;dashed=1;endArrow=classic;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1300" y="380" />
-              <mxPoint x="980" y="380" />
+              <mxPoint x="1300" y="370" />
+              <mxPoint x="960" y="370" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Security & Performance Summary -->
-        <mxCell id="fl_summary" value="&lt;b&gt;WHY FEDERATED LEARNING FOR MULTI-CROP LEAF DISEASE DETECTION?&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;1. &lt;b&gt;Privacy &amp; Data Security&lt;/b&gt;: Agricultural facilities or farm devices never transmit sensitive high-resolution leaf images over the network.&lt;br/&gt;2. &lt;b&gt;Cross-Crop Generalization&lt;/b&gt;: An individual model trained solely on Mango leaves often misclassifies Tomato spots. The global model learns shared leaf pathology.&lt;br/&gt;3. &lt;b&gt;High Empirical Accuracy&lt;/b&gt;: Reaches 98.2% test accuracy and 0.9984 AUC across all three agricultural domains simultaneously." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#475569;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="80" y="670" width="1340" height="130" as="geometry" />
+        <!-- Academic Properties Frame -->
+        <mxCell id="prop_box" value="&lt;b&gt;Key Theoretical &amp; Engineering Properties&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;Privacy-Preserving&lt;/b&gt;: Raw image data never leaves farm nodes; only model parameters (weights) are communicated.&lt;br/&gt;• &lt;b&gt;Cross-Domain Generalization&lt;/b&gt;: Eliminates single-crop bias by transferring learned representations across disparate crop geometries.&lt;br/&gt;• &lt;b&gt;Communication Efficiency&lt;/b&gt;: Local SGD (8 epochs per round) reduces network transmissions compared to centralized cloud streaming.&lt;br/&gt;• &lt;b&gt;Empirical Validation&lt;/b&gt;: 98.2% Accuracy, 97.9% Sensitivity, 98.8% Specificity across 10-Fold Cross-Validation." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="620" width="1340" height="130" as="geometry" />
         </mxCell>
 
       </root>

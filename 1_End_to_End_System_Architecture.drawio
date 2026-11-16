@@ -1,135 +1,108 @@
 <mxfile host="app.diagrams.net" modified="2026-11-16T15:00:00.000Z" agent="Mozilla/5.0" version="21.0.0" type="device">
-  <diagram id="diag_overview" name="1. End-to-End System Pipeline">
-    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1650" pageHeight="1100" background="#F8FAFC" math="0" shadow="0">
+  <diagram id="academic_overview" name="System Architecture (Academic Style)">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1650" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
-        <!-- Title Header -->
-        <mxCell id="header" value="MULTI-LEAF DISEASE DETECTION: COMPLETE SYSTEM ARCHITECTURE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#0F172A;fontColor=#FFFFFF;fontSize=20;fontStyle=1;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="100" y="30" width="1450" height="50" as="geometry" />
+        <!-- Title -->
+        <mxCell id="title" value="Multi-Leaf Disease Detection Pipeline: System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#000000;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="100" y="30" width="1450" height="40" as="geometry" />
         </mxCell>
 
-        <!-- STAGE 1: DATASETS -->
-        <mxCell id="grp_datasets" value="STAGE 1: MULTI-CROP LEAF DATASETS (Decentralized Clients)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#F1F5F9;strokeColor=#94A3B8;strokeWidth=2;dashed=1;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="100" y="110" width="420" height="420" as="geometry" />
+        <!-- CONTAINER 1: DATASETS -->
+        <mxCell id="box_data" value="Decentralized Agricultural Datasets" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1.5;dashed=1;fontColor=#000000;fontFamily=Helvetica;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="400" height="420" as="geometry" />
         </mxCell>
 
-        <mxCell id="ds_mango" value="&lt;b&gt;Client 1: Mango Leaves&lt;/b&gt;&lt;br/&gt;• Healthy: 340 images&lt;br/&gt;• Diseased: 530 images&lt;br/&gt;&lt;i&gt;Total: 870 images&lt;/i&gt;&lt;br/&gt;Binary Split (0 / 1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="130" y="160" width="360" height="90" as="geometry" />
+        <mxCell id="d_mango" value="&lt;b&gt;Client Node 1: Mango Leaf&lt;/b&gt;&lt;br/&gt;• Healthy: 340 images&lt;br/&gt;• Diseased: 530 images&lt;br/&gt;• Total: 870 images&lt;br/&gt;• Binary Label (0: Healthy, 1: Diseased)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="125" y="140" width="350" height="90" as="geometry" />
         </mxCell>
 
-        <mxCell id="ds_apple" value="&lt;b&gt;Client 2: Apple Leaves&lt;/b&gt;&lt;br/&gt;• Healthy: 1,032 images&lt;br/&gt;• Diseased (Rust &amp; Scab): 2,428 images&lt;br/&gt;&lt;i&gt;Total: 3,460 images&lt;/i&gt;&lt;br/&gt;Binary Split (0 / 1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="130" y="270" width="360" height="90" as="geometry" />
+        <mxCell id="d_apple" value="&lt;b&gt;Client Node 2: Apple Leaf&lt;/b&gt;&lt;br/&gt;• Healthy: 1,032 images&lt;br/&gt;• Diseased: 2,428 images (Rust, Scab)&lt;br/&gt;• Total: 3,460 images&lt;br/&gt;• Binary Label (0: Healthy, 1: Diseased)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="125" y="255" width="350" height="90" as="geometry" />
         </mxCell>
 
-        <mxCell id="ds_tomato" value="&lt;b&gt;Client 3: Tomato Leaves&lt;/b&gt;&lt;br/&gt;• Healthy: 2,000 images&lt;br/&gt;• Diseased (9 Disease Classes): 17,999 images&lt;br/&gt;&lt;i&gt;Total: 19,999 images (Capped at 1,500/class)&lt;/i&gt;&lt;br/&gt;Binary Split (0 / 1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="130" y="380" width="360" height="110" as="geometry" />
+        <mxCell id="d_tomato" value="&lt;b&gt;Client Node 3: Tomato Leaf&lt;/b&gt;&lt;br/&gt;• Healthy: 2,000 images&lt;br/&gt;• Diseased: 17,999 images (9 pathology classes)&lt;br/&gt;• Total: 19,999 images (Capped at 1,500/class)&lt;br/&gt;• Binary Label (0: Healthy, 1: Diseased)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="125" y="370" width="350" height="110" as="geometry" />
         </mxCell>
 
-        <!-- STAGE 2: PREPROCESSING -->
-        <mxCell id="grp_preproc" value="STAGE 2: PREPROCESSING PIPELINE (Per Image)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#ECFEFF;strokeColor=#0891B2;strokeWidth=2;dashed=1;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="570" y="110" width="400" height="420" as="geometry" />
+        <!-- CONTAINER 2: PREPROCESSING -->
+        <mxCell id="box_prep" value="Image Preprocessing Pipeline" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1.5;dashed=1;fontColor=#000000;fontFamily=Helvetica;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="90" width="410" height="420" as="geometry" />
         </mxCell>
 
-        <mxCell id="pre_resize" value="&lt;b&gt;1. Resize &amp; Color Space Conversion&lt;/b&gt;&lt;br/&gt;Input shape: 224 x 224 x 3&lt;br/&gt;BGR → LAB Color Space" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFFAFE;strokeColor=#06B6D4;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="600" y="160" width="340" height="70" as="geometry" />
+        <mxCell id="p_resize" value="&lt;b&gt;1. Spatial Resizing&lt;/b&gt;&lt;br/&gt;Standardize to 224 × 224 × 3 pixels" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="140" width="350" height="70" as="geometry" />
         </mxCell>
 
-        <mxCell id="pre_clahe" value="&lt;b&gt;2. CLAHE (Contrast-Limited AHE)&lt;/b&gt;&lt;br/&gt;Enhance L-channel (clipLimit=2.0, grid=8x8)&lt;br/&gt;Highlights sharp lesion borders under low light" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFFAFE;strokeColor=#06B6D4;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="600" y="250" width="340" height="75" as="geometry" />
+        <mxCell id="p_clahe" value="&lt;b&gt;2. CLAHE Contrast Enhancement&lt;/b&gt;&lt;br/&gt;LAB space conversion; L-channel equalization&lt;br/&gt;Clip Limit = 2.0, Grid Size = 8 × 8" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="230" width="350" height="75" as="geometry" />
         </mxCell>
 
-        <mxCell id="pre_tvf" value="&lt;b&gt;3. TVF (Total Variation Filter)&lt;/b&gt;&lt;br/&gt;Chambolle Denoising (weight=0.1, iters=100)&lt;br/&gt;Removes background noise, preserves edge gradients" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFFAFE;strokeColor=#06B6D4;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="600" y="345" width="340" height="75" as="geometry" />
+        <mxCell id="p_tvf" value="&lt;b&gt;3. Total Variation Filter (TVF)&lt;/b&gt;&lt;br/&gt;Chambolle Denoising (weight=0.1, n_iter=100)&lt;br/&gt;Edge-preserving artifact suppression" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="325" width="350" height="75" as="geometry" />
         </mxCell>
 
-        <mxCell id="pre_vmd" value="&lt;b&gt;4. VMD (Variational Mode Decomposition)&lt;/b&gt;&lt;br/&gt;K=4 Sub-band Intrinsic Modes (VM1, VM2, VM3, VM4)&lt;br/&gt;Extracts multi-frequency pathological textures" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CFFAFE;strokeColor=#06B6D4;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="600" y="440" width="340" height="75" as="geometry" />
+        <mxCell id="p_vmd" value="&lt;b&gt;4. Variational Mode Decomposition (VMD)&lt;/b&gt;&lt;br/&gt;Decomposition into K=4 sub-band intrinsic modes&lt;br/&gt;Isolates low-frequency shape &amp; high-frequency lesion textures" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="570" y="420" width="350" height="75" as="geometry" />
         </mxCell>
 
-        <!-- STAGE 3: FEATURE EXTRACTION -->
-        <mxCell id="grp_feat" value="STAGE 3: DEEP ENSEMBLE FEATURE EXTRACTION" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#F3E8FF;strokeColor=#7E22CE;strokeWidth=2;dashed=1;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="1020" y="110" width="530" height="420" as="geometry" />
+        <!-- CONTAINER 3: FEATURE EXTRACTION -->
+        <mxCell id="box_feat" value="Ensemble Deep Feature Extraction" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1.5;dashed=1;fontColor=#000000;fontFamily=Helvetica;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="990" y="90" width="560" height="420" as="geometry" />
         </mxCell>
 
-        <mxCell id="feat_vgg" value="&lt;b&gt;Backbone 1: VGG19 (ImageNet Pre-trained)&lt;/b&gt;&lt;br/&gt;Pooling: GlobalAveragePooling2D&lt;br/&gt;&lt;font color='#7E22CE'&gt;&lt;b&gt;Output: 512-dimensional vector&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="160" width="470" height="70" as="geometry" />
+        <mxCell id="f_vgg" value="&lt;b&gt;Backbone 1: VGG19 (ImageNet Pre-trained)&lt;/b&gt;&lt;br/&gt;Global Average Pooling Output: &lt;b&gt;512 dimensions&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="140" width="500" height="70" as="geometry" />
         </mxCell>
 
-        <mxCell id="feat_dense" value="&lt;b&gt;Backbone 2: DenseNet121 (ImageNet Pre-trained)&lt;/b&gt;&lt;br/&gt;Dense feature reuse, high gradient flow&lt;br/&gt;&lt;font color='#7E22CE'&gt;&lt;b&gt;Output: 1,024-dimensional vector&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="250" width="470" height="70" as="geometry" />
+        <mxCell id="f_dense" value="&lt;b&gt;Backbone 2: DenseNet121 (ImageNet Pre-trained)&lt;/b&gt;&lt;br/&gt;Global Average Pooling Output: &lt;b&gt;1,024 dimensions&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="230" width="500" height="70" as="geometry" />
         </mxCell>
 
-        <mxCell id="feat_res" value="&lt;b&gt;Backbone 3: ResNet50 (ImageNet Pre-trained)&lt;/b&gt;&lt;br/&gt;Deep residual skip connections&lt;br/&gt;&lt;font color='#7E22CE'&gt;&lt;b&gt;Output: 2,048-dimensional vector&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="340" width="470" height="70" as="geometry" />
+        <mxCell id="f_res" value="&lt;b&gt;Backbone 3: ResNet50 (ImageNet Pre-trained)&lt;/b&gt;&lt;br/&gt;Global Average Pooling Output: &lt;b&gt;2,048 dimensions&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="320" width="500" height="70" as="geometry" />
         </mxCell>
 
-        <mxCell id="feat_concat" value="&lt;b&gt;Concatenated Ensemble Representation&lt;/b&gt;&lt;br/&gt;512 + 1024 + 2048 = &lt;font color='#7E22CE'&gt;&lt;b&gt;3,584-Dimensional Feature Vector&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;Combines fine textures, dense semantic patterns &amp; deep context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;strokeWidth=2;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="430" width="470" height="80" as="geometry" />
+        <mxCell id="f_concat" value="&lt;b&gt;Feature Concatenation Layer&lt;/b&gt;&lt;br/&gt;Combined Feature Vector: 512 + 1024 + 2048 = &lt;b&gt;3,584 Dimensions&lt;/b&gt;&lt;br/&gt;Dense multi-level spatial representation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontSize=12;fontColor=#000000;fontFamily=Helvetica;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="415" width="500" height="80" as="geometry" />
         </mxCell>
 
-        <!-- STAGE 4: FEDERATED LEARNING & EVALUATION -->
-        <mxCell id="grp_fl" value="STAGE 4: FEDERATED LEARNING (FedAvg) &amp; CLINICAL EVALUATION" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#EFF6FF;strokeColor=#1D4ED8;strokeWidth=2;dashed=1;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="100" y="580" width="1450" height="420" as="geometry" />
+        <!-- CONTAINER 4: FEDERATED LEARNING -->
+        <mxCell id="box_fl" value="Decentralized Federated Learning &amp; Global Evaluation" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFFFFF;strokeColor=#333333;strokeWidth=1.5;dashed=1;fontColor=#000000;fontFamily=Helvetica;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="550" width="1450" height="420" as="geometry" />
         </mxCell>
 
-        <!-- Clients Boxes -->
-        <mxCell id="fl_client1" value="&lt;b&gt;Node 1: Mango Client&lt;/b&gt;&lt;br/&gt;Local Dataset D₁ (N₁=870)&lt;br/&gt;Local Training (8 Epochs)&lt;br/&gt;Weights Update: &lt;i&gt;W₁&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="150" y="640" width="280" height="90" as="geometry" />
+        <mxCell id="fl_c1" value="&lt;b&gt;Client Node 1 (Mango)&lt;/b&gt;&lt;br/&gt;• Dataset D₁ (N₁ = 870)&lt;br/&gt;• Local SGD: 8 Epochs&lt;br/&gt;• Weight Update: W₁" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="130" y="610" width="280" height="90" as="geometry" />
         </mxCell>
 
-        <mxCell id="fl_client2" value="&lt;b&gt;Node 2: Apple Client&lt;/b&gt;&lt;br/&gt;Local Dataset D₂ (N₂=3460)&lt;br/&gt;Local Training (8 Epochs)&lt;br/&gt;Weights Update: &lt;i&gt;W₂&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="150" y="750" width="280" height="90" as="geometry" />
+        <mxCell id="fl_c2" value="&lt;b&gt;Client Node 2 (Apple)&lt;/b&gt;&lt;br/&gt;• Dataset D₂ (N₂ = 3,460)&lt;br/&gt;• Local SGD: 8 Epochs&lt;br/&gt;• Weight Update: W₂" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="130" y="720" width="280" height="90" as="geometry" />
         </mxCell>
 
-        <mxCell id="fl_client3" value="&lt;b&gt;Node 3: Tomato Client&lt;/b&gt;&lt;br/&gt;Local Dataset D₃ (N₃=19999)&lt;br/&gt;Local Training (8 Epochs)&lt;br/&gt;Weights Update: &lt;i&gt;W₃&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="150" y="860" width="280" height="90" as="geometry" />
+        <mxCell id="fl_c3" value="&lt;b&gt;Client Node 3 (Tomato)&lt;/b&gt;&lt;br/&gt;• Dataset D₃ (N₃ = 19,999)&lt;br/&gt;• Local SGD: 8 Epochs&lt;br/&gt;• Weight Update: W₃" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="130" y="830" width="280" height="90" as="geometry" />
         </mxCell>
 
-        <!-- Central FL Server -->
-        <mxCell id="fl_server" value="&lt;b&gt;CENTRAL FEDERATED AGGREGATOR (FedAvg)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;&lt;font color='#1E40AF'&gt;&lt;b&gt;W_(t+1) = Σ (n_k / N) * W_k&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;• Coordinates 15 Global Communication Rounds&lt;br/&gt;• Aggregates weight updates weighted by client size&lt;br/&gt;• Distributes updated global weights back to all nodes&lt;br/&gt;• &lt;b&gt;Zero raw data transfer (100% Privacy Preserving)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=3;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="540" y="660" width="420" height="260" as="geometry" />
+        <mxCell id="fl_srv" value="&lt;b&gt;Central Server Aggregation (FedAvg)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;&lt;b&gt;W_(t+1) = Σ (n_k / N) · W_k^(t+1)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• 15 Communication Rounds&lt;br/&gt;• Weight updates aggregated by sample size weighting&lt;br/&gt;• Global weights broadcast back to local clients&lt;br/&gt;• No raw data leaves edge devices (Privacy-Preserving)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontSize=12;fontColor=#000000;fontFamily=Helvetica;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="630" width="460" height="260" as="geometry" />
         </mxCell>
 
-        <!-- Evaluation Results Box -->
-        <mxCell id="fl_eval" value="&lt;b&gt;EVALUATION &amp; STATISTICAL RIGOR&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;10-Fold Stratified Cross-Validation&lt;/b&gt;&lt;br/&gt;  - Accuracy: &lt;font color='#059669'&gt;&lt;b&gt;98.2% ± 0.6%&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;  - Sensitivity: &lt;font color='#059669'&gt;&lt;b&gt;97.9% ± 0.8%&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;  - Specificity: &lt;font color='#059669'&gt;&lt;b&gt;98.8% ± 0.4%&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;  - Area Under Curve (AUC): &lt;font color='#059669'&gt;&lt;b&gt;0.9984&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;Wilcoxon Signed-Rank Test&lt;/b&gt;: p &lt; 0.05&lt;br/&gt;  (Proves FL model significantly beats local models)&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;Saved Model&lt;/b&gt;: global_federated_leaf_disease_model.keras" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="660" width="450" height="260" as="geometry" />
+        <mxCell id="fl_res" value="&lt;b&gt;Experimental Validation &amp; Metrics&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;10-Fold Stratified Cross-Validation&lt;/b&gt;&lt;br/&gt;  - Mean Accuracy: &lt;b&gt;98.2% ± 0.6%&lt;/b&gt;&lt;br/&gt;  - Mean Sensitivity: &lt;b&gt;97.9% ± 0.8%&lt;/b&gt;&lt;br/&gt;  - Mean Specificity: &lt;b&gt;98.8% ± 0.4%&lt;/b&gt;&lt;br/&gt;  - Area Under Curve (AUC): &lt;b&gt;0.9984&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;Wilcoxon Signed-Rank Test&lt;/b&gt;: p &lt; 0.05&lt;br/&gt;  (Statistically significant performance gain)&lt;br/&gt;&lt;br/&gt;• &lt;b&gt;Model File&lt;/b&gt;: global_federated_leaf_disease_model.keras" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=11;fontColor=#000000;fontFamily=Helvetica;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="630" width="510" height="260" as="geometry" />
         </mxCell>
 
-        <!-- Connectors -->
-        <mxCell id="c1" edge="1" parent="1" source="grp_datasets" target="grp_preproc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#0284C7;">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <!-- ARROWS -->
+        <mxCell id="arr_1" edge="1" parent="1" source="box_data" target="box_prep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;" />
+        <mxCell id="arr_2" edge="1" parent="1" source="box_prep" target="box_feat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;" />
+        
+        <mxCell id="arr_u1" value="W₁" edge="1" parent="1" source="fl_c1" target="fl_srv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;" />
+        <mxCell id="arr_u2" value="W₂" edge="1" parent="1" source="fl_c2" target="fl_srv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;" />
+        <mxCell id="arr_u3" value="W₃" edge="1" parent="1" source="fl_c3" target="fl_srv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;" />
 
-        <mxCell id="c2" edge="1" parent="1" source="grp_preproc" target="grp_feat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#7C3AED;">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="c3" edge="1" parent="1" source="feat_concat" target="fl_client2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#4B5563;dashed=1;">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1285" y="550" />
-              <mxPoint x="290" y="550" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <mxCell id="c_up1" value="Upload W₁" edge="1" parent="1" source="fl_client1" target="fl_server" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2563EB;">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="c_up2" value="Upload W₂" edge="1" parent="1" source="fl_client2" target="fl_server" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2563EB;">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="c_up3" value="Upload W₃" edge="1" parent="1" source="fl_client3" target="fl_server" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2563EB;">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="c_eval" value="Final Aggregated Model" edge="1" parent="1" source="fl_server" target="fl_eval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#059669;">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="arr_res" value="Validated Global Weights" edge="1" parent="1" source="fl_srv" target="fl_res" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;strokeColor=#000000;endArrow=classic;" />
 
       </root>
     </mxGraphModel>
